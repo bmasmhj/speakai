@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const database = mysql.createConnection({
-  host     : 'stan.mysecurecloudserver.com',
-  user     : 'bimashco_main',
-  password : 'wDnd+?rjdfb3',
-  database : 'bimashco_chatapp'
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_NAME
 });
 
 database.connect(function(err) {
