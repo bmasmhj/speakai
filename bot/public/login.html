@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="google-signin-client_id"  content="467291088215-ulvpckdk6ipfhf3inci8dqvh11n2s9c6.apps.googleusercontent.com" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f1f1f1;
+    }
+    .login_btn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        background: white;
+        width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+</style>
+<body>
+    <div id="g_id_onload"
+    data-client_id="467291088215-ulvpckdk6ipfhf3inci8dqvh11n2s9c6.apps.googleusercontent.com"
+    data-callback="handleCredentialResponse">
+    </div>
+    <div class="login_btn">
+        <h2>Login with google</h2>
+        <div class="g_id_signin" data-type="standard"></div>
+    </div>
+
+    <script>
+        function handleCredentialResponse(response) {
+            responsePayload = decodeJwtResponse(response.credential);
+            console.log(responsePayload);
+                var user_id = responsePayload.sub;
+                var access_email = responsePayload.email;
+                var access_name = responsePayload.name;
+
+            $.ajax({
+                url : '/api/v1/login',
+                method : 'POST',
+                headers: {
+                "Content-Type": "application/json"
+                },
+                data : JSON.stringify({
+                    user_id,
+                    access_email,
+                    access_name
+                }),
+                success : function(res){
+                    console.log(res);
+                    localStorage.setItem("access_token" , res.token)
+                    localStorage.setItem('access_name',access_name);
+                    localStorage.setItem('access_id',user_id)
+                    localStorage.setItem('access_email',access_email)
+                    window.location.href = '/';
+                }
+            })
+
+            }
+
+            function decodeJwtResponse(token) {
+                let base64Url = token.split('.')[1]
+                let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                return JSON.parse(jsonPayload)
+            }
+
+            if(localStorage.getItem('access_token')){
+                window.location.href = '/';
+            }
+    </script>
+</body>
+</html>

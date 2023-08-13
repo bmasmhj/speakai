@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+body{
+    overflow: hidden;
+}
+
+*::-webkit-scrollbar{
+    width: 5px;
+}
+*::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #000000;
+    border-radius: 20px;
+    border : 3px solid #000000;
+}
+
+.circlewave{
+    width: 100px;
+    height: 100px;
+    border: 5px solid #28a9ff3b;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+.speaker{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position : absolute;
+    bottom: -999px;
+    width: 100%;
+}
+.showup{
+    animation: slide 1s ease-in-out 0s 1 normal forwards;
+}
+@keyframes slide {
+    0% {
+        bottom: -999px;
+    }
+    100% {
+        bottom: 15px;
+    }
+}
+canvas{
+    width: fit-content;
+}
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.loading__container {
+    position: absolute;
+    height: 100svh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.loading__circle {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    animation: loading 0.9s infinite alternate;
+    margin: 0 5px;
+}
+.loading__circle:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.loading__circle:nth-child(3) {
+    animation-delay: 0.6s;
+}
+@keyframes loading {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.loadingheading{
+    font-family: 'Bruno Ace SC', cursive;
+    color: white;
+}
+.popuup-main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000000d9;
+    z-index: 99999;
+    opacity: 1;
+}
+#input{
+    background: black;
+    padding: 10px;
+    color: white;
+    border-radius: 44px;
+}
+.popuup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    padding: 20px;
+    height: 100px;
+    border-radius: 89px 12px 85px 12px;
+    transform: translate(-50%,-50%);
+    background: #000000d9;
+    z-index: 9999;
+    border: 2px solid #fff;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.closeicon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+#output{
+    height: 80vh;
+    overflow-x: hidden;
+    overflow: auto;
+}
+
+
+
+
+.d-none{
+    display: none!important;
+}
+
+
+
+
+#messages{
+    width: 100%;
+    height: 75vh;
+    overflow: auto;
+    overflow-x : hidden;
+}
+
+.outgoing{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.outgoing p{
+    background-color: #d3d3d3;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+    margin-bottom: 10px;
+}
+
+.incoming{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.incoming p{
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%;
+    margin-bottom: 10px;
+}
+.startbtn{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+}
+
+.speaker{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#input{
+   width  :  auto;
+   background-color: #000000;
+   border-radius: 20px;
+   color: white;
+   padding: 5px;
+}
+
+.d-none{
+    display: none;
+}
+
+.popup-inner{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-inner h5{
+    color: white;
+    font-family: 'Bruno Ace SC', cursive;
+}

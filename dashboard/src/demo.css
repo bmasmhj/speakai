@@ -1,0 +1,557 @@
+/*
+* demo.css
+* File include item demo only specific css only
+******************************************************************************/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(104, 104, 104); 
+  border-radius: 5px;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #343434; 
+}
+.menu .app-brand.demo {
+    height: 64px;
+    margin-top: 12px;
+  }
+  
+  .app-brand-logo.demo svg {
+    width: 22px;
+    height: 38px;
+  }
+  
+  .app-brand-text.demo {
+    font-size: 1.75rem;
+    letter-spacing: -0.5px;
+  }
+  
+  /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
+  /* Detached navbar */
+  .layout-navbar-fixed .layout-wrapper:not(.layout-horizontal):not(.layout-without-menu) .layout-page {
+    padding-top: 76px !important;
+  }
+  /* Default navbar */
+  .layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
+    padding-top: 64px !important;
+  }
+  
+  /* Navbar page z-index issue solution */
+  .content-wrapper .navbar {
+    z-index: auto;
+  }
+  
+  /*
+  * Content
+  ******************************************************************************/
+  
+  .demo-blocks > * {
+    display: block !important;
+  }
+  
+  .demo-inline-spacing > * {
+    margin: 1rem 0.375rem 0 0 !important;
+  }
+  
+  /* ? .demo-vertical-spacing class is used to have vertical margins between elements. To remove margin-top from the first-child, use .demo-only-element class with .demo-vertical-spacing class. For example, we have used this class in forms-input-groups.html file. */
+  .demo-vertical-spacing > * {
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+  .demo-vertical-spacing.demo-only-element > :first-child {
+    margin-top: 0 !important;
+  }
+  
+  .demo-vertical-spacing-lg > * {
+    margin-top: 1.875rem !important;
+    margin-bottom: 0 !important;
+  }
+  .demo-vertical-spacing-lg.demo-only-element > :first-child {
+    margin-top: 0 !important;
+  }
+  
+  .demo-vertical-spacing-xl > * {
+    margin-top: 5rem !important;
+    margin-bottom: 0 !important;
+  }
+  .demo-vertical-spacing-xl.demo-only-element > :first-child {
+    margin-top: 0 !important;
+  }
+  
+  .rtl-only {
+    display: none !important;
+    text-align: left !important;
+    direction: ltr !important;
+  }
+  
+  [dir='rtl'] .rtl-only {
+    display: block !important;
+  }
+  
+  /*
+  * Layout demo
+  ******************************************************************************/
+  
+  .layout-demo-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .layout-demo-placeholder img {
+    width: 900px;
+  }
+  .layout-demo-info {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .logopreview{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid #2b7eeb;
+  }
+
+  
+
+
+  .profile-pic {
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .profile-pic input {
+    display: none;
+  }
+  .profile-pic img {
+    position: absolute;
+    object-fit: cover;
+    width: 165px;
+    height: 165px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+    border-radius: 100px;
+    z-index: 0;
+  }
+  .profile-pic .-label {
+    cursor: pointer;
+    height: 165px;
+    width: 165px;
+  }
+  .profile-pic:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 100px;
+    margin-bottom: 0;
+  }
+  .profile-pic span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+  }
+  
+ 
+
+  .profiles-pic {
+    color: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .profiles-pic input {
+    display: none;
+  }
+  .profiles-pic img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 165px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+    z-index: 0;
+  }
+  .profiles-pic .-label {
+    cursor: pointer;
+    height: 165px;
+    width: 165px;
+  }
+  .profiles-pic:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .profiles-pic span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+  }
+  
+  .blogimg{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 16vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px
+}
+
+.waves.waves-sm {
+  height: 50px;
+  min-height: 50px
+}
+
+.waves.no-animation .moving-waves>use {
+  animation: none
+}
+
+.wave-rotate {
+  transform: rotate(180deg)
+}
+
+.moving-waves>use {
+  animation: d 40s cubic-bezier(.55, .5, .45, .5) infinite
+}
+
+.moving-waves>use:first-child {
+  animation-delay: -2s;
+  animation-duration: 11s
+}
+
+.moving-waves>use:nth-child(2) {
+  animation-delay: -4s;
+  animation-duration: 13s
+}
+
+.moving-waves>use:nth-child(3) {
+  animation-delay: -3s;
+  animation-duration: 15s
+}
+
+.moving-waves>use:nth-child(4) {
+  animation-delay: -4s;
+  animation-duration: 20s
+}
+
+.moving-waves>use:nth-child(5) {
+  animation-delay: -4s;
+  animation-duration: 25s
+}
+
+.moving-waves>use:nth-child(6) {
+  animation-delay: -3s;
+  animation-duration: 30s
+}
+
+@keyframes d {
+  0% {
+      transform: translate3d(-90px, 0, 0)
+  }
+
+  to {
+      transform: translate3d(85px, 0, 0)
+  }
+}
+
+@media (max-width:767.98px) {
+  .waves {
+      height: 40px;
+      min-height: 40px
+  }
+
+  hr.horizontal {
+      background-color: transparent
+  }
+
+  hr.horizontal:not(.dark) {
+      background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0), #fff, hsla(0, 0%, 100%, 0))
+  }
+
+  hr.horizontal.vertical {
+      transform: rotate(90deg)
+  }
+
+  hr.horizontal.dark {
+      background-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, .4), transparent)
+  }
+}
+
+
+.menu-vertical{
+  height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* position: fixed; */
+}
+.layout-page{
+  height: 100vh;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.menu-vertical::-webkit-scrollbar {
+  width: 0em;
+  background-color: transparent;
+}
+
+.editpen{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  color: white;
+}
+.editblogoverlay:hover{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #131313;
+  z-index: 2;
+  opacity: 0.8;
+  overflow: hidden;
+}
+.editblogoverlay{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #131313;
+  z-index: 2;
+  opacity: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.blog-title{
+  height: 20px;
+  overflow: hidden;
+}
+.blog-description{
+  height: 42px;
+  overflow: hidden;
+}
+
+#blogchart canvas{
+  border-radius: 30px;
+}
+
+.wfix{
+  width: 150px!important;
+}
+.tblcard{
+  width: 100%;
+  overflow-x: auto;
+
+}
+
+.wfixm{
+  width: 650px!important;
+}
+
+.messagebox .outgoing{
+  display: flex;
+  width: 50%;
+  margin-bottom: 1rem;
+}
+.messagebox .incoming{
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-bottom: 1rem;
+}
+
+.messagebox .outgoing p{
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-bottom: 0;
+  width: fit-content;
+}
+
+.messagebox .incoming p{
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  width: fit-content;
+  text-align: left;
+}
+
+.messagebox .incoming small{
+  margin-left: auto;
+  width: fit-content;
+  text-align: left;
+}
+
+.list-group-item p{
+  margin: 0;
+}
+
+
+
+.console {
+  font-family: monospace, monospace;
+  color: #fff;
+  width: calc(100% - 3em);
+  max-width: 100%;
+  max-height: calc(100% - 3em);
+  overflow-y: auto;
+  margin: 1em 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em;
+  box-shadow: 0 0.75em 3em rgba(50, 50, 50, 0.5);
+  z-index: 100;
+  line-height: 1.5;
+}
+
+.console-input {
+  font-family: monospace, monospace;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: calc(100% - 2em);
+  resize: none;
+}
+
+.console-input:before {
+  content: '> ';
+  color: #FC3565;
+  vertical-align: top;
+}
+
+.output-cmd:before {
+  content: '> ';
+  color: #FC3565;
+  vertical-align: top;
+}
+
+.output-text:before {
+  content: '> ';
+  color: #5F8787;
+  font-weight: 600 !important;
+  vertical-align: top;
+}
+
+.output-text,
+.output-cmd {
+  width: 100%;
+  display: block;
+}
+
+.console-inner {
+  padding: 0.3em 1.1em;
+}
+
+.output-text,
+.output-cmd {
+  display: block;
+  white-space: pre;
+}
+
+#outputs div {
+  opacity: 0.85;
+}
+
+#outputs div div {
+  color: #46f01d;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+#outputs a {
+  color: #46f01d;
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.console-inner .output-text#ready {
+  color: #3df5b8;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.overviewselect{
+  z-index: 999999;
+  position: absolute;
+  top: 15px;
+  right: 21px;
+}
+.overviewselect select{
+   width: fit-content;
+}
+
+.smalltable{
+  width: 100%;
+  overflow-x: auto;
+  height: 500px!important;
+}
+
+.uploadimagecontent{
+  display: none;
+}
+.uploadimage:hover .uploadimagecontent{
+  height: 350px;
+  width: 100%;
+  opacity: 0.8;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #131313;
+  cursor: pointer;
+}

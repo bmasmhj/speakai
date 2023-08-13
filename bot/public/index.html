@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .setting_div{
+        position: absolute;
+        right: 40px;
+        bottom: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid black;
+    }
+    .setting_div .setting{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-55%);
+        cursor: pointer;
+        transition: transform .7s ease-in-out;
+    }
+    .setting h1{
+        margin: 0px;
+    }
+    .setting_div .setting:hover{
+        transform: translate(-50%,-55%) scale(1.1) rotate(360deg);
+    }
+    .settingoptions{
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+        border: 3px solid black;
+        background: white;
+        text-align: center;
+        display: none;
+    }
+    .settingoptions select{
+        width: 250px;
+        border-radius: 10px;
+        border: 2px solid black;
+        outline: none;
+    }
+    .settingoptions select option {
+        padding: 10px;
+    }
+
+    #settingcloseicon{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+</style>
+<script defer src="/socket.io/socket.io.js"></script>
+<body onload="loaded()" class="bg-gray-100" >
+    <div class="loading">
+        <div class="loading__container">
+            <div>
+                <div class="loading__circle"></div>
+                <div class="loading__circle"></div>
+                <div class="loading__circle"></div>
+            </div>
+            <h1 class="loadingheading">
+                Speak AI
+            </h1>
+        </div>
+    </div>
+    <div id="messages">
+      
+    </div>
+    <div class="speaker">
+        <p  id="input" class="d-none"></p>
+        <button
+        class="startbtn"
+        id="rec_btn"
+        onclick="recognize()" >Start</button>
+    </div>
+
+    <div id="settings" class="setting_div">
+        <div class="setting" id="opensetting">
+            <h1>⚙</h1>
+        </div>
+        <div id="settingoptions" class="settingoptions">
+            <span id="settingcloseicon">❌</span>
+            <h2>Select Output Voice</h2>
+            <select name="voices" size="5" id="voices">
+
+            </select>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script defer src="script.js" ></script>
+<script>
+
+// Function to list all available voices for speech synthesis
+function listAvailableVoices() {
+  if ('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged !== undefined) {
+    // Listen for the voiceschanged event to ensure voices are loaded
+    window.speechSynthesis.onvoiceschanged = function () {
+      const voices = window.speechSynthesis.getVoices();
+      // Log all available voices to the console
+      console.log("Available Voices:");
+      voices.forEach((voice, index) => {
+            if(localStorage.getItem('voice') == index)
+                $('#voices').append(`<option value="${index}" selected>${voice.name} (${voice.lang})</option>`);
+            else
+                $('#voices').append(`<option value="${index}">${voice.name} (${voice.lang})</option>`);
+      });
+    };
+  } else {
+    console.warn("Speech synthesis not supported in this browser.");
+  }
+}
+
+// Call the function to list available voices
+listAvailableVoices();
+
+$('#settingcloseicon').click(function(){
+    $('#settingoptions').css('display','none');
+})
+
+$('#opensetting').click(function(){
+    $('#settingoptions').css('display','block');
+})
+
+$('#voices').change(function(){
+    var voice = $('#voices').val();
+    var msg = new SpeechSynthesisUtterance();
+    msg.voice = window.speechSynthesis.getVoices()[voice];
+    msg.text = "Hello World";
+    window.speechSynthesis.speak(msg);
+    localStorage.setItem('voice', voice );
+})
+</script>
+</html>
