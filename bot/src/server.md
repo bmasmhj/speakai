@@ -54,16 +54,10 @@ async function startNLP(){
           const testData = [
             { utterance: "hello friend", classification: "greetings.hello" },
             { utterance: "what is your age", classification: "agent.age" },
-            { utterance: "is your age 21", classification: "agent.age" },
-            { utterance: "your age", classification: "agent.age" },
-            { utterance: "how old are you", classification: "agent.age" },
             { utterance: "I don't like you ", classification: "agent.bad" },
-            { utterance: "yo should learn more", classification: "agent.beclever" },
             { utterance: "go learn more", classification: "agent.beclever" },
             { utterance: "Who is your Boss", classification: "agent.boss" },
             { utterance: "please help me", classification: "agent.canyouhelp" },
-            { utterance: "are you robot", classification: "agent.chatbot" },
-            { utterance: "you crazy", classification: "agent.crazy" },
             { utterance: "you mad boy", classification: "agent.crazy" },
             { utterance: "now you're dismissed", classification: "agent.fire" },
             { utterance: "you very good", classification: "agent.good" },
@@ -71,8 +65,6 @@ async function startNLP(){
             { utterance: "tell me your hobby", classification: "agent.hobby" },
             { utterance: "you hungry ?", classification: "agent.hungry" },
             { utterance: "what is your work", classification: "agent.occupation" },
-            { utterance: "what do you do", classification: "agent.occupation" },
-
 
           ];
           
